@@ -80,8 +80,12 @@ class CategoryTableViewController: UITableViewController {
     }
     
     func showMenu(_ row: Int){
-        let vc = MenuTableViewController()
-        vc.category = categories[row]
-        present(vc, animated: true, completion: nil)
+        let vc: MenuTableViewController = {
+            let vc = MenuTableViewController()
+            vc.category = categories[row]
+            return vc
+        }()
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
