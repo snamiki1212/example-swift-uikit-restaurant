@@ -12,7 +12,6 @@ let TAB_BAR_HEIGHT = 50
 class MenuItemDetailViewController: UIViewController {
     var menuItem: MenuItem? {
         didSet{
-            print("DID SET")
             updateUI()
         }
     }
@@ -26,6 +25,19 @@ class MenuItemDetailViewController: UIViewController {
     override func viewDidLoad() {
         view.backgroundColor = .white
         
+        // title
+        // TODO:
+
+        // name
+        // TODO:
+        
+        // image
+        // TODO:
+        
+        // detailText
+        // TODO:
+        
+        
         // addToOrderButton
         view.addSubview(addToOrderButton)
         addToOrderButton.layer.cornerRadius = 5.0
@@ -38,6 +50,7 @@ class MenuItemDetailViewController: UIViewController {
             addToOrderButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             addToOrderButton.heightAnchor.constraint(equalToConstant: 50)
         ])
+        addToOrderButton.addTarget(self, action: #selector(orderButtonTapped), for: .touchUpInside)
         
     }
     
@@ -56,7 +69,7 @@ class MenuItemDetailViewController: UIViewController {
         }
     }
     
-    func orderButtonTapped(_ sender: UIButton) {
+    @objc func orderButtonTapped(_ sender: UIButton) {
         guard let menuItem = menuItem else { fatalError("Invalid data about menuItem")}
         UIView.animate(
             withDuration: 0.5,
