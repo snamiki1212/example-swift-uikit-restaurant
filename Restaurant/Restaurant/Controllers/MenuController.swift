@@ -8,6 +8,15 @@
 import Foundation
 
 class MenuController {
+    
+    var order = Order() {
+        didSet {
+            NotificationCenter.default.post(name:
+               MenuController.orderUpdatedNotification, object: nil)
+        }
+    }
+    static let orderUpdatedNotification = Notification.Name("MenuController.orderUpdated")
+    
     static let shared = MenuController()
     let baseURL = URL(string: "http://localhost:8080/")!
     

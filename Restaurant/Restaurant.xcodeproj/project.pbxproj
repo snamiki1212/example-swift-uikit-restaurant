@@ -20,6 +20,7 @@
 		24C11160265F0119001322B0 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C1115F265F0119001322B0 /* MenuController.swift */; };
 		24C11162265F0E58001322B0 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C11161265F0E58001322B0 /* MenuTableViewController.swift */; };
 		24C11164265F11BC001322B0 /* MenuItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C11163265F11BC001322B0 /* MenuItemDetailViewController.swift */; };
+		24C11166265F151D001322B0 /* OrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C11165265F151D001322B0 /* OrderTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		24C1115F265F0119001322B0 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		24C11161265F0E58001322B0 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		24C11163265F11BC001322B0 /* MenuItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetailViewController.swift; sourceTree = "<group>"; };
+		24C11165265F151D001322B0 /* OrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				24C1115F265F0119001322B0 /* MenuController.swift */,
 				24C11161265F0E58001322B0 /* MenuTableViewController.swift */,
 				24C11155265EF813001322B0 /* MainTabBarController.swift */,
+				24C11165265F151D001322B0 /* OrderTableViewController.swift */,
 				24C11163265F11BC001322B0 /* MenuItemDetailViewController.swift */,
 				24C11157265EFA11001322B0 /* XYZViewController.swift */,
 			);
@@ -177,6 +180,7 @@
 				24C11160265F0119001322B0 /* MenuController.swift in Sources */,
 				24C11162265F0E58001322B0 /* MenuTableViewController.swift in Sources */,
 				2466E5662656CC1F00CE66D3 /* AppDelegate.swift in Sources */,
+				24C11166265F151D001322B0 /* OrderTableViewController.swift in Sources */,
 				24C1115E265EFC05001322B0 /* Order.swift in Sources */,
 				24C11156265EF813001322B0 /* MainTabBarController.swift in Sources */,
 				24C1115A265EFB21001322B0 /* MenuItem.swift in Sources */,
