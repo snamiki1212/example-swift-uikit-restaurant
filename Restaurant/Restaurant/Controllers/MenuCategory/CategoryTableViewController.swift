@@ -26,7 +26,6 @@ class CategoryTableViewController: UITableViewController {
         }
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: self.cellID)
-        view.backgroundColor = .red
     }
     
     func updateUI(with categories: [String]) {

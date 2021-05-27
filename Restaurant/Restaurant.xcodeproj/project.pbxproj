@@ -97,21 +97,19 @@
 			isa = PBXGroup;
 			children = (
 				24C11155265EF813001322B0 /* MainTabBarController.swift */,
-				24C11169265F717B001322B0 /* Menu */,
+				24C11169265F717B001322B0 /* MenuCategory */,
 				24C1116A265F718A001322B0 /* Order */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		24C11169265F717B001322B0 /* Menu */ = {
+		24C11169265F717B001322B0 /* MenuCategory */ = {
 			isa = PBXGroup;
 			children = (
-				24C1115F265F0119001322B0 /* MenuController.swift */,
 				2466E5692656CC1F00CE66D3 /* CategoryTableViewController.swift */,
-				24C11163265F11BC001322B0 /* MenuItemDetailViewController.swift */,
-				24C11161265F0E58001322B0 /* MenuTableViewController.swift */,
+				24C1116B265FFB4E001322B0 /* Menu */,
 			);
-			path = Menu;
+			path = MenuCategory;
 			sourceTree = "<group>";
 		};
 		24C1116A265F718A001322B0 /* Order */ = {
@@ -121,6 +119,16 @@
 				24C11165265F151D001322B0 /* OrderTableViewController.swift */,
 			);
 			path = Order;
+			sourceTree = "<group>";
+		};
+		24C1116B265FFB4E001322B0 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				24C1115F265F0119001322B0 /* MenuController.swift */,
+				24C11163265F11BC001322B0 /* MenuItemDetailViewController.swift */,
+				24C11161265F0E58001322B0 /* MenuTableViewController.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
