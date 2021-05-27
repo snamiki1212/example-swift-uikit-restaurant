@@ -65,10 +65,15 @@ class MenuTableViewController: UITableViewController {
         return cell
     }
     
-    // TODO:
-    func showMenuItem(){
-        print("TODO")
-//        let vc = MenuItemDetailViewController()
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let menuItem = menuItems[indexPath.row]
+        showMenuItem(menuItem)
+    }
+
+    func showMenuItem(_ menuItem: MenuItem){
+        let vc = MenuItemDetailViewController()
+        vc.menuItem = menuItem
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     func configure(_ cell: UITableViewCell, forItemAt indexPath: IndexPath) {

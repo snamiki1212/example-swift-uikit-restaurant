@@ -7,29 +7,42 @@
 
 import UIKit
 
+let TAB_BAR_HEIGHT = 50
+
 class MenuItemDetailViewController: UIViewController {
-
-    let menuItem: MenuItem
-    var titleLabel: UILabel!
-    var nameLabel: UILabel!
-    var imageView: UIImageView!
-    var priceLabel: UILabel!
-    var detailTextLabel: UILabel!
-    var addToOrderButton: UIButton!
-
-    init?(coder: NSCoder, menuItem: MenuItem) {
-        self.menuItem = menuItem
-        super.init(coder: coder)
-        addToOrderButton.layer.cornerRadius = 5.0
-        
-        updateUI()
+    var menuItem: MenuItem? {
+        didSet{
+            print("DID SET")
+            updateUI()
+        }
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    var titleLabel = UILabel()
+    var nameLabel = UILabel()
+    var imageView = UIImageView()
+    var priceLabel = UILabel()
+    var detailTextLabel = UILabel()
+    var addToOrderButton = UIButton()
+
+    override func viewDidLoad() {
+        view.backgroundColor = .white
+        
+        // addToOrderButton
+        view.addSubview(addToOrderButton)
+        addToOrderButton.layer.cornerRadius = 5.0
+        addToOrderButton.setTitle("Add to Order", for: .normal)
+        addToOrderButton.translatesAutoresizingMaskIntoConstraints = false
+        addToOrderButton.backgroundColor = .systemGreen
+        NSLayoutConstraint.activate([
+            addToOrderButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: CGFloat(-TAB_BAR_HEIGHT + -20)),
+            addToOrderButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            addToOrderButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            addToOrderButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
     }
     
     func updateUI() {
+        guard let menuItem = menuItem else { fatalError("Invalid data about menuItem")}
         titleLabel.text = menuItem.name
         priceLabel.text = MenuItem.priceFormatter.string(from:
            NSNumber(value: menuItem.price))
@@ -44,6 +57,7 @@ class MenuItemDetailViewController: UIViewController {
     }
     
     func orderButtonTapped(_ sender: UIButton) {
+        guard let menuItem = menuItem else { fatalError("Invalid data about menuItem")}
         UIView.animate(
             withDuration: 0.5,
             delay: 0,
