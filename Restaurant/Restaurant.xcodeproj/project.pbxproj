@@ -13,7 +13,6 @@
 		2466E56F2656CC1F00CE66D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2466E56E2656CC1F00CE66D3 /* Assets.xcassets */; };
 		2466E5722656CC1F00CE66D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2466E5702656CC1F00CE66D3 /* LaunchScreen.storyboard */; };
 		24C11156265EF813001322B0 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C11155265EF813001322B0 /* MainTabBarController.swift */; };
-		24C11158265EFA11001322B0 /* XYZViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C11157265EFA11001322B0 /* XYZViewController.swift */; };
 		24C1115A265EFB21001322B0 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C11159265EFB21001322B0 /* MenuItem.swift */; };
 		24C1115C265EFBA4001322B0 /* ResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C1115B265EFBA4001322B0 /* ResponseModels.swift */; };
 		24C1115E265EFC05001322B0 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C1115D265EFC05001322B0 /* Order.swift */; };
@@ -33,7 +32,6 @@
 		2466E5712656CC1F00CE66D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2466E5732656CC1F00CE66D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24C11155265EF813001322B0 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		24C11157265EFA11001322B0 /* XYZViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYZViewController.swift; sourceTree = "<group>"; };
 		24C11159265EFB21001322B0 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		24C1115B265EFBA4001322B0 /* ResponseModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModels.swift; sourceTree = "<group>"; };
 		24C1115D265EFC05001322B0 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
@@ -98,16 +96,31 @@
 		24C11154265EF715001322B0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2466E5692656CC1F00CE66D3 /* CategoryTableViewController.swift */,
-				24C1115F265F0119001322B0 /* MenuController.swift */,
-				24C11161265F0E58001322B0 /* MenuTableViewController.swift */,
 				24C11155265EF813001322B0 /* MainTabBarController.swift */,
-				24C11165265F151D001322B0 /* OrderTableViewController.swift */,
-				24C11163265F11BC001322B0 /* MenuItemDetailViewController.swift */,
-				24C11167265F3D67001322B0 /* OrderConfirmationViewController.swift */,
-				24C11157265EFA11001322B0 /* XYZViewController.swift */,
+				24C11169265F717B001322B0 /* Menu */,
+				24C1116A265F718A001322B0 /* Order */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		24C11169265F717B001322B0 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				24C1115F265F0119001322B0 /* MenuController.swift */,
+				2466E5692656CC1F00CE66D3 /* CategoryTableViewController.swift */,
+				24C11163265F11BC001322B0 /* MenuItemDetailViewController.swift */,
+				24C11161265F0E58001322B0 /* MenuTableViewController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		24C1116A265F718A001322B0 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				24C11167265F3D67001322B0 /* OrderConfirmationViewController.swift */,
+				24C11165265F151D001322B0 /* OrderTableViewController.swift */,
+			);
+			path = Order;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,7 +201,6 @@
 				24C1115E265EFC05001322B0 /* Order.swift in Sources */,
 				24C11156265EF813001322B0 /* MainTabBarController.swift in Sources */,
 				24C1115A265EFB21001322B0 /* MenuItem.swift in Sources */,
-				24C11158265EFA11001322B0 /* XYZViewController.swift in Sources */,
 				2466E5682656CC1F00CE66D3 /* SceneDelegate.swift in Sources */,
 				24C11164265F11BC001322B0 /* MenuItemDetailViewController.swift in Sources */,
 				24C1115C265EFBA4001322B0 /* ResponseModels.swift in Sources */,

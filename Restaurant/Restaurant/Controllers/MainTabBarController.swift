@@ -18,12 +18,13 @@ class MainTabBarController: UITabBarController {
             return UINavigationController(rootViewController: vc)
         }()
         
-        let xyzVC: UINavigationController = {
-            let vc = XYZViewController()
+        let orderVC: UINavigationController = {
+            let vc = OrderTableViewController()
+            vc.minutesToPrepare = 2
             vc.tabBarItem = UITabBarItem(tabBarSystemItem: .downloads, tag: 1)
             return UINavigationController(rootViewController: vc)
         }()
         
-        viewControllers = [categoryVC, xyzVC]
+        viewControllers = [categoryVC, orderVC]
     }
 }
