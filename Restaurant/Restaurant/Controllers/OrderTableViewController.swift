@@ -7,7 +7,10 @@
 
 import UIKit
 
+
+
 class OrderTableViewController: UITableViewController {
+    let cellID = "Order"
     var order = Order()
     let minutesToPrepare: Int
     var minutesToPrepareOrder = 0
@@ -26,6 +29,7 @@ class OrderTableViewController: UITableViewController {
         NotificationCenter.default.addObserver(tableView!,
            selector: #selector(UITableView.reloadData),
            name: MenuController.orderUpdatedNotification, object: nil)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: self.cellID)
     }
     
     override func tableView(_ tableView: UITableView,
@@ -36,7 +40,7 @@ class OrderTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt
        indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier:
-           "Order", for: indexPath)
+                                                    self.cellID, for: indexPath)
         configure(cell, forItemAt: indexPath)
         return cell
     }

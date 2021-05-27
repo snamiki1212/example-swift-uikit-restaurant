@@ -8,6 +8,7 @@
 import UIKit
 
 class MenuTableViewController: UITableViewController {
+    let cellID = "MenuItem"
     let category: String
     var menuItems = [MenuItem]()
     let priceFormatter: NumberFormatter = {
@@ -36,6 +37,7 @@ class MenuTableViewController: UITableViewController {
                 self.displayError(error, title: "Failed to Fetch Menu Items for \(self.category)")
             }
         }
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: self.cellID)
     }
     
     func updateUI(with menuItems: [MenuItem]) {
@@ -67,7 +69,7 @@ class MenuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView,
        cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier:
-           "MenuItem", for: indexPath)
+                                                    self.cellID, for: indexPath)
         configure(cell, forItemAt: indexPath)
         return cell
     }

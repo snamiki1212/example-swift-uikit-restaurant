@@ -7,7 +7,9 @@
 
 import UIKit
 
+
 class CategoryTableViewController: UITableViewController {
+    let cellID = "CATEGORY"
     var categories = [String]()
     
     override func viewDidLoad() {
@@ -24,7 +26,7 @@ class CategoryTableViewController: UITableViewController {
             }
         }
         
-        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: self.cellID)
         view.backgroundColor = .red
     }
     
@@ -63,7 +65,7 @@ class CategoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath:IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier:
-           "Category", for: indexPath)
+                                                    cellID, for: indexPath)
         configureCell(cell, forCategoryAt: indexPath)
         return cell
     }
