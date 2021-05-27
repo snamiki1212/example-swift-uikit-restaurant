@@ -71,21 +71,31 @@ class MenuTableViewController: UITableViewController {
         configure(cell, forItemAt: indexPath)
         return cell
     }
-
-    func configure(_ cell: UITableViewCell, forItemAt indexPath:
-       IndexPath) {
-        let menuItem = menuItems[indexPath.row]
-        cell.textLabel?.text = menuItem.name
-//        cell.detailTextLabel?.text = "$\(menuItem.price)"
-        cell.detailTextLabel?.text = priceFormatter.string(from: NSNumber(value: menuItem.price))
-    }
-
-
     
     // TODO:
     func showMenuItem(){
         print("TODO")
 //        let vc = MenuItemDetailViewController()
     }
-    
+
+    func configure(_ cell: UITableViewCell, forItemAt indexPath: IndexPath) {
+        let menuItem = menuItems[indexPath.row]
+        cell.textLabel?.text = menuItem.name
+        cell.detailTextLabel?.text = String(format: "$%.2f",
+           menuItem.price)
+        MenuController.shared.fetchImage(url: menuItem.imageURL)
+           { (image) in
+            guard let image = image else { return }
+            DispatchQueue.main.async {
+                if let currentIndexPath = self.tableView.indexPath(for:
+                   cell),
+                    currentIndexPath != indexPath {
+                    return
+                }
+                cell.imageView?.image = image
+                cell.setNeedsLayout()
+            }
+        }
+    }
+
 }

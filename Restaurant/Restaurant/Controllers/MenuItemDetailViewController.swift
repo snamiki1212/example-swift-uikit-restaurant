@@ -10,6 +10,7 @@ import UIKit
 class MenuItemDetailViewController: UIViewController {
 
     let menuItem: MenuItem
+    var titleLabel: UILabel!
     var nameLabel: UILabel!
     var imageView: UIImageView!
     var priceLabel: UILabel!
@@ -29,9 +30,17 @@ class MenuItemDetailViewController: UIViewController {
     }
     
     func updateUI() {
-        nameLabel.text = menuItem.name
-        priceLabel.text = MenuItem.priceFormatter.string(from: NSNumber(value: menuItem.price))
+        titleLabel.text = menuItem.name
+        priceLabel.text = MenuItem.priceFormatter.string(from:
+           NSNumber(value: menuItem.price))
         detailTextLabel.text = menuItem.detailText
+        MenuController.shared.fetchImage(url: menuItem.imageURL)
+           { (image) in
+            guard let image = image else { return }
+            DispatchQueue.main.async {
+                self.imageView.image = image
+            }
+        }
     }
     
     func orderButtonTapped(_ sender: UIButton) {
