@@ -14,13 +14,13 @@ class MainTabBarController: UITabBarController {
         
         let categoryVC: UINavigationController = {
             let vc = CategoryTableViewController()
-            vc.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
+            vc.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 0)
             return UINavigationController(rootViewController: vc)
         }()
         
         let xyzVC: UINavigationController = {
             let vc = XYZViewController()
-            vc.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
+            vc.tabBarItem = UITabBarItem(tabBarSystemItem: .downloads, tag: 1)
             return UINavigationController(rootViewController: vc)
         }()
         
