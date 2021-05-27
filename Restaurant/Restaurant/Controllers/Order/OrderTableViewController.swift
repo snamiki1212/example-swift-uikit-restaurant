@@ -67,7 +67,6 @@ class OrderTableViewController: UITableViewController {
     
     @objc func confirmOrder(){
         present(OrderConfirmationViewController(), animated: true, completion: nil)
-//        self.navigationController?.pushViewController(, animated: true)
     }
     
     @objc func onClickSubmit(_ sender: Any) {

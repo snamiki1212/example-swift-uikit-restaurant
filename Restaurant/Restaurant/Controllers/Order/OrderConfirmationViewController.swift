@@ -17,9 +17,8 @@ class OrderConfirmationViewController: UIViewController {
         
         // confirmation
         view.addSubview(confirmationLabel)
-        confirmationLabel.text = "Thank you for your order! Your wait time is approximately \(minutesToPrepare) minutes."
+        confirmationLabel.text = "Thank you for your order!\nYour wait time is approximately \(minutesToPrepare) minutes."
         confirmationLabel.translatesAutoresizingMaskIntoConstraints = false
-        confirmationLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         confirmationLabel.numberOfLines = 0
         NSLayoutConstraint.activate([
             confirmationLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
