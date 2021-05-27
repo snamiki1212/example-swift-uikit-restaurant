@@ -66,12 +66,11 @@ class OrderTableViewController: UITableViewController {
     }
     
     @objc func confirmOrder(){
-        print(#function)
-        self.navigationController?.pushViewController(OrderConfirmationViewController(), animated: true)
+        present(OrderConfirmationViewController(), animated: true, completion: nil)
+//        self.navigationController?.pushViewController(, animated: true)
     }
     
     @objc func onClickSubmit(_ sender: Any) {
-        print(#function)
         let orderTotal =
            MenuController.shared.order.menuItems.reduce(0.0)
            { (result, menuItem) -> Double in

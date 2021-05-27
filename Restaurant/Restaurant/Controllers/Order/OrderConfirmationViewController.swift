@@ -13,14 +13,23 @@ class OrderConfirmationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+        
+        // confirmation
+        view.addSubview(confirmationLabel)
         confirmationLabel.text = "Thank you for your order! Your wait time is approximately \(minutesToPrepare) minutes."
+        confirmationLabel.translatesAutoresizingMaskIntoConstraints = false
+        confirmationLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        confirmationLabel.numberOfLines = 0
+        NSLayoutConstraint.activate([
+            confirmationLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            confirmationLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
     }
-    
-    // TODO:
-//    @IBAction func unwindToOrderList(segue: UIStoryboardSegue) {
-//        if segue.identifier == "dismissConfirmation" {
-//            MenuController.shared.order.menuItems.removeAll()
-//        }
-//    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        MenuController.shared.order.menuItems.removeAll()
+    }
 }
 

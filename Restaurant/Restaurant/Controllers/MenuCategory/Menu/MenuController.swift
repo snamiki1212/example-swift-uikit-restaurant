@@ -79,7 +79,6 @@ class MenuController {
             if let data = data {
                 do {
                     let jsonDecoder = JSONDecoder()
-                    print("data", data)
                     let orderResponse = try
                        jsonDecoder.decode(OrderResponse.self, from: data)
                     completion(.success(orderResponse.prepTime))
