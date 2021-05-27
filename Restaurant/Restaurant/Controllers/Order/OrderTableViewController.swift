@@ -12,6 +12,11 @@ class OrderTableViewController: UITableViewController {
     var order = Order()
     var minutesToPrepare: Int = 0
     var minutesToPrepareOrder = 0
+    lazy var submitButton: UIBarButtonItem = {
+        let btn = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(onClickSubmit))
+        btn.title = "Submit"
+        return btn
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +24,10 @@ class OrderTableViewController: UITableViewController {
            selector: #selector(UITableView.reloadData),
            name: MenuController.orderUpdatedNotification, object: nil)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: self.cellID)
+        
+        
+        // submit
+        navigationItem.rightBarButtonItem = submitButton
     }
     
     override func tableView(_ tableView: UITableView,
@@ -56,37 +65,34 @@ class OrderTableViewController: UITableViewController {
         }
     }
     
-    // TODO:
-    func confirmOrder(){
-        //let vc = OrderTableViewController()
-        print("TODO")
+    @objc func confirmOrder(){
+        print(#function)
+        self.navigationController?.pushViewController(OrderConfirmationViewController(), animated: true)
     }
     
-    // TODO:
-//    @IBAction func submitTapped(_ sender: Any) {
-//        let orderTotal =
-//           MenuController.shared.order.menuItems.reduce(0.0)
-//           { (result, menuItem) -> Double in
-//            return result + menuItem.price
-//        }
-//     
-//        let formattedTotal = MenuItem.priceFormatter.string(from:
-//           NSNumber(value: orderTotal)) ?? "\(orderTotal)"
-//    
-//        let alertController = UIAlertController(title:
-//           "Confirm Order", message: "You are about to submit your
-//           order with a total of \(formattedTotal)",
-//           preferredStyle: .actionSheet)
-//        alertController.addAction(UIAlertAction(title: "Submit",
-//           style: .default, handler: { _ in
-//            self.uploadOrder()
-//        }))
-//    
-//        alertController.addAction(UIAlertAction(title: "Cancel",
-//           style: .cancel, handler: nil))
-//    
-//        present(alertController, animated: true, completion: nil)
-//    }
+    @objc func onClickSubmit(_ sender: Any) {
+        print(#function)
+        let orderTotal =
+           MenuController.shared.order.menuItems.reduce(0.0)
+           { (result, menuItem) -> Double in
+            return result + menuItem.price
+        }
+    
+        let formattedTotal = MenuItem.priceFormatter.string(from:
+           NSNumber(value: orderTotal)) ?? "\(orderTotal)"
+    
+        let alertController = UIAlertController(title: "Confirm Order", message: "You are about to submit your order with a total of \(formattedTotal)",
+           preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Submit",
+           style: .default, handler: { _ in
+            self.uploadOrder()
+        }))
+    
+        alertController.addAction(UIAlertAction(title: "Cancel",
+           style: .cancel, handler: nil))
+    
+        present(alertController, animated: true, completion: nil)
+    }
 
     func uploadOrder() {
         let menuIds = MenuController.shared.order.menuItems.map
@@ -97,8 +103,7 @@ class OrderTableViewController: UITableViewController {
             case .success(let minutesToPrepare):
                 DispatchQueue.main.async {
                     self.minutesToPrepareOrder = minutesToPrepare
-                    self.performSegue(withIdentifier: "confirmOrder",
-                       sender: nil)
+                    self.confirmOrder()
                 }
             case .failure(let error):
                 self.displayError(error, title: "Order Submission Failed")

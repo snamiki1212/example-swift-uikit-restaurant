@@ -65,22 +65,21 @@ class MenuController {
     
     typealias MinusToPrepare = Int
     func submitOrder(forMenuIDs menuIDs: [Int], completion: @escaping (Result<MinusToPrepare, Error>) -> Void) {
-        //
         let orderURL = baseURL.appendingPathComponent("order")
-
-        let data = ["menuIDs": menuIDs]
+        var request = URLRequest(url: orderURL)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+        let data = ["menuIds": menuIDs]
         let jsonEncoder = JSONEncoder()
         let jsonData = try? jsonEncoder.encode(data)
-
-        var request = URLRequest(url: orderURL)
-        request.httpMethod = "Post"
-        request.setValue("application/json", forHTTPHeaderField: "Content-type")
         request.httpBody = jsonData
-        
+
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
                 do {
                     let jsonDecoder = JSONDecoder()
+                    print("data", data)
                     let orderResponse = try
                        jsonDecoder.decode(OrderResponse.self, from: data)
                     completion(.success(orderResponse.prepTime))

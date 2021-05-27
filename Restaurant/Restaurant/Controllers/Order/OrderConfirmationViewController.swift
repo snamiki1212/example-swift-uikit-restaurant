@@ -9,7 +9,8 @@ import UIKit
 
 class OrderConfirmationViewController: UIViewController {
     let minutesToPrepare: Int = 0
-    var confirmationLabel: UILabel!
+    var confirmationLabel = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         confirmationLabel.text = "Thank you for your order! Your wait time is approximately \(minutesToPrepare) minutes."
