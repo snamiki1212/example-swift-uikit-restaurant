@@ -9,7 +9,7 @@ import UIKit
 
 class MenuTableViewController: UITableViewController {
     let cellID = "MenuItem"
-    let category: String
+    var category: String?
     var menuItems = [MenuItem]()
     let priceFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -18,23 +18,14 @@ class MenuTableViewController: UITableViewController {
         return formatter
     }()
     
-    init?(coder: NSCoder, category: String) {
-        self.category = category
-        super.init(coder: coder)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        MenuController.shared.fetchMenuItems(forCategory: category) { (result) in
+        MenuController.shared.fetchMenuItems(forCategory: category!) { (result) in
             switch result {
             case .success(let menuItems):
                 self.updateUI(with: menuItems)
             case .failure(let error):
-                self.displayError(error, title: "Failed to Fetch Menu Items for \(self.category)")
+                self.displayError(error, title: "Failed to Fetch Menu Items for \(self.category!)")
             }
         }
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: self.cellID)

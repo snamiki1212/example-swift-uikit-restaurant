@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class CategoryTableViewController: UITableViewController {
     let cellID = "CATEGORY"
     var categories = [String]()
@@ -76,12 +75,13 @@ class CategoryTableViewController: UITableViewController {
         cell.textLabel?.text = category.capitalized
     }
     
-    func showMenu(){
-        //
-        print("TODO")
-        let coder: NSCoder? = nil
-        let idx = 0 // indexPath.row
-        let category = categories[idx]
-//        MenuTableViewController(coder: coder, category: category)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showMenu(indexPath.row)
+    }
+    
+    func showMenu(_ row: Int){
+        let vc = MenuTableViewController()
+        vc.category = categories[row]
+        present(vc, animated: true, completion: nil)
     }
 }
